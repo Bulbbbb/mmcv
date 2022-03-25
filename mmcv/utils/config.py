@@ -7,7 +7,6 @@ import platform
 import shutil
 import sys
 import tempfile
-import types
 import uuid
 import warnings
 from argparse import Action, ArgumentParser
@@ -210,8 +209,6 @@ class Config:
                     name: value
                     for name, value in mod.__dict__.items()
                     if not name.startswith('__')
-                    and not isinstance(value, types.ModuleType)
-                    and not isinstance(value, types.FunctionType)
                 }
                 # delete imported module
                 del sys.modules[temp_module_name]
